@@ -1,0 +1,7 @@
+C:\Users\marco\source\repos\Praticando\Praticando-02\bin\Debug\Praticando-02.exe.config
+C:\Users\marco\source\repos\Praticando\Praticando-02\bin\Debug\Praticando-02.exe
+C:\Users\marco\source\repos\Praticando\Praticando-02\bin\Debug\Praticando-02.pdb
+C:\Users\marco\source\repos\Praticando\Praticando-02\obj\Debug\Praticando-02.csproj.AssemblyReference.cache
+C:\Users\marco\source\repos\Praticando\Praticando-02\obj\Debug\Praticando-02.csproj.CoreCompileInputs.cache
+C:\Users\marco\source\repos\Praticando\Praticando-02\obj\Debug\Praticando-02.exe
+C:\Users\marco\source\repos\Praticando\Praticando-02\obj\Debug\Praticando-02.pdb
