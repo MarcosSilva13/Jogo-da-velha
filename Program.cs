@@ -25,7 +25,7 @@ namespace Praticando_02
         static void Main(string[] args)
         {
             int opcao = 1;
-           // bool newPlayers = true;
+            // bool newPlayers = true;
 
             while (opcao == 1)
             {
@@ -39,14 +39,11 @@ namespace Praticando_02
                     }
                 }
 
-                // Tabuleiro(velha);
-
-
+                //Pegando nome dos jogadores
                 string player1, player2;
                 char symbol = 'X';
                // if (newPlayers == true)
               //  {
-                    //Pegando nome dos jogadores
                     Console.Write("Nome do Player 1: ");
                     player1 = Console.ReadLine();
                     Console.Write("Nome do Player 2: ");
@@ -71,15 +68,12 @@ namespace Praticando_02
                     Console.ReadLine();
                 }
 
-
-
                 //Numero de turnos
                 int turno = 1;
                 while (turno < 10)
                 {
                     Console.Clear();
                     Tabuleiro(velha);
-
 
                     Console.WriteLine("Turno: " + turno);
 
@@ -192,14 +186,11 @@ namespace Praticando_02
 
                         Console.WriteLine("\n!!! JOGO FINALIZOU EMPATADO !!!");
                     }
-                }//chave while
+                }
                 Console.WriteLine("Deseja jogar novamente? 1-SIM 2-NÃO");
                 opcao = Convert.ToInt32(Console.ReadLine());
             }
             
-
-            
-
             Console.ReadLine();
         }
     }
