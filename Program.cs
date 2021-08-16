@@ -24,8 +24,10 @@ namespace Praticando_02
         }
         static void Main(string[] args)
         {
-            int opcao = 1;
-            // bool newPlayers = true;
+            int opcao = 1, pontoP1 = 0, pontoP2 = 0;
+            
+            //pode ser perguntando no inicio quantas vezes quer jogar colocar o valor em uma variavel e controlar
+            //o numero de repetições de partidas
 
             while (opcao == 1)
             {
@@ -42,13 +44,12 @@ namespace Praticando_02
                 //Pegando nome dos jogadores
                 string player1, player2;
                 char symbol = 'X';
-               // if (newPlayers == true)
-              //  {
+               
                     Console.Write("Nome do Player 1: ");
                     player1 = Console.ReadLine();
                     Console.Write("Nome do Player 2: ");
                     player2 = Console.ReadLine();
-               // }
+               
                
                 //Console.Clear();
 
@@ -149,10 +150,12 @@ namespace Praticando_02
                         if (firstPlayer == 1 || firstPlayer == 3 || firstPlayer == 5)
                         {
                             Console.WriteLine(player1 + " VENCEU!!!");
+                            pontoP1++;
                         }
                         else if (firstPlayer == 2 || firstPlayer == 4 || firstPlayer == 6)
                         {
                             Console.WriteLine(player2 + " VENCEU!!!");
+                            pontoP2++;
                         }
                     }
                     else if (velha[0, 0] == 'O' && velha[0, 1] == 'O' && velha[0, 2] == 'O' ||
@@ -173,10 +176,12 @@ namespace Praticando_02
                         if (firstPlayer == 1 || firstPlayer == 3 || firstPlayer == 5)
                         {
                             Console.WriteLine(player2 + " VENCEU!!!");
+                            pontoP2++;
                         }
                         else if (firstPlayer == 2 || firstPlayer == 4 || firstPlayer == 5)
                         {
                             Console.WriteLine(player1 + " VENCEU!!!");
+                            pontoP1++;
                         }
                     }
                     else if (turno == 10)
@@ -185,10 +190,28 @@ namespace Praticando_02
                         Tabuleiro(velha);
 
                         Console.WriteLine("\n!!! JOGO FINALIZOU EMPATADO !!!");
+                        Console.WriteLine("Nenhum jogador pontuou!!!");
                     }
                 }
+
+                //Pontuação
+                Console.WriteLine("\n\t!!! PONTUAÇÃO !!!");
+                Console.WriteLine("\t" + player1 + " " + pontoP1 + " X " + pontoP2 + " " + player2 + "\n");
+
                 Console.WriteLine("Deseja jogar novamente? 1-SIM 2-NÃO");
                 opcao = Convert.ToInt32(Console.ReadLine());
+                
+                Console.Clear();
+
+                if ((opcao == 2) && (pontoP1 == pontoP2))
+                {
+                    Console.WriteLine("!!! EMPATE DAS PONTUAÇÕES !!!");
+                }
+                else
+                {
+                    Console.WriteLine("\t!!! PONTUAÇÃO FINAL !!!");
+                    Console.WriteLine("\t" + player1 + " " + pontoP1 + " X " + pontoP2 + " " + player2);
+                }
             }
             
             Console.ReadLine();
