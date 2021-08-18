@@ -22,14 +22,43 @@ namespace Praticando_02
             Console.Write("     3");
             Console.WriteLine("\t" + velha[2, 0] + " | " + velha[2, 1] + " | " + velha[2, 2]);
         }
+
+        //Metodo para mostrar numero de rodadas
+        static void numeroRodadas(int rodadas)
+        {
+            int rodadaAux = 0;
+            rodadaAux = rodadas - 1;
+            if(rodadaAux > 0)
+            {
+                Console.WriteLine("\nRodadas restantes: " + rodadaAux);
+            }
+            else
+            {
+                Console.WriteLine("\n!!! ULTIMA RODADA !!!");
+            }
+
+        }
+
+        //Metodo para mostrar o placar do jogo 
+        static void Placar(string NomeP1, int pointP1, string NomeP2, int pointP2)
+        {
+            Console.WriteLine(NomeP1 + " " + pointP1 + " X " + pointP2 + " " + NomeP2 + "\n");
+        }
         static void Main(string[] args)
         {
-            int opcao = 1, pontoP1 = 0, pontoP2 = 0;
-            
-            //pode ser perguntando no inicio quantas vezes quer jogar colocar o valor em uma variavel e controlar
-            //o numero de repetições de partidas
+            int rodadas = 0, pontoP1 = 0, pontoP2 = 0;
 
-            while (opcao == 1)
+            Console.WriteLine("Quantas rodadas quer jogar ?");
+            rodadas = Convert.ToInt32(Console.ReadLine());
+
+            //Pegando nome dos jogadores
+            string player1, player2;
+            Console.Write("Nome do Player 1: ");
+            player1 = Console.ReadLine();
+            Console.Write("Nome do Player 2: ");
+            player2 = Console.ReadLine();
+
+            while (rodadas > 0)
             {
                 //iniciando a matriz vazia
                 char[,] velha = new char[3, 3];
@@ -41,16 +70,8 @@ namespace Praticando_02
                     }
                 }
 
-                //Pegando nome dos jogadores
-                string player1, player2;
                 char symbol = 'X';
-               
-                    Console.Write("Nome do Player 1: ");
-                    player1 = Console.ReadLine();
-                    Console.Write("Nome do Player 2: ");
-                    player2 = Console.ReadLine();
-               
-               
+
                 //Console.Clear();
 
                 //Sorteando quem vai jogar primeiro
@@ -74,7 +95,10 @@ namespace Praticando_02
                 while (turno < 10)
                 {
                     Console.Clear();
+
                     Tabuleiro(velha);
+
+                    numeroRodadas(rodadas);
 
                     Console.WriteLine("Turno: " + turno);
 
@@ -195,24 +219,33 @@ namespace Praticando_02
                 }
 
                 //Pontuação
-                Console.WriteLine("\n\t!!! PONTUAÇÃO !!!");
-                Console.WriteLine("\t" + player1 + " " + pontoP1 + " X " + pontoP2 + " " + player2 + "\n");
+                Console.WriteLine("\n!!! PONTUAÇÃO !!!");
+                Placar(player1, pontoP1, player2, pontoP2);
+                Console.ReadLine();
 
-                Console.WriteLine("Deseja jogar novamente? 1-SIM 2-NÃO");
-                opcao = Convert.ToInt32(Console.ReadLine());
-                
+                rodadas--;
+
                 Console.Clear();
-
-                if ((opcao == 2) && (pontoP1 == pontoP2))
+                
+                //nova rodada
+                if (rodadas > 0)
                 {
-                    Console.WriteLine("!!! EMPATE DAS PONTUAÇÕES !!!");
+                    Console.WriteLine("\t!!! Iniciando nova rodada !!!");
+                    Console.ReadLine();
+                }
+            }
+                //Final do jogo
+                if ((rodadas == 0) && (pontoP1 == pontoP2))
+                {
+                    Console.WriteLine("!!! OS JOGADORES EMPATARAM NAS PONTUAÇÕES !!!");
+                    Placar(player1, pontoP1, player2, pontoP2);
                 }
                 else
                 {
-                    Console.WriteLine("\t!!! PONTUAÇÃO FINAL !!!");
-                    Console.WriteLine("\t" + player1 + " " + pontoP1 + " X " + pontoP2 + " " + player2);
+                    Console.WriteLine("!!! PONTUAÇÃO FINAL !!!");
+                    Placar(player1, pontoP1, player2, pontoP2);
                 }
-            }
+            
             
             Console.ReadLine();
         }
