@@ -34,7 +34,7 @@ namespace Praticando_02
             }
             else
             {
-                Console.WriteLine("\n!!! ULTIMA RODADA !!!");
+                Console.WriteLine();
             }
 
         }
