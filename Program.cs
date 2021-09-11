@@ -36,7 +36,6 @@ namespace Praticando_02
             {
                 Console.WriteLine();
             }
-
         }
 
         //Metodo para mostrar o placar do jogo 
@@ -71,8 +70,6 @@ namespace Praticando_02
                 }
 
                 char symbol = 'X';
-
-                //Console.Clear();
 
                 //Sorteando quem vai jogar primeiro
                 Random rand = new Random();
@@ -245,8 +242,7 @@ namespace Praticando_02
                     Console.WriteLine("!!! PONTUAÇÃO FINAL !!!");
                     Placar(player1, pontoP1, player2, pontoP2);
                 }
-            
-            
+
             Console.ReadLine();
         }
     }
